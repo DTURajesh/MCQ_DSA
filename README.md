@@ -643,6 +643,7 @@ Sure, here are all the questions numbered from 21 onwards:
 
 ### 21.
 **Question:** Given a sorted array rotated at an unknown pivot, how would you find a given target value?
+
 - A. Use linear search
 - B. Use binary search directly
 - C. Use a modified binary search to find the pivot first, then search in the appropriate half
@@ -652,6 +653,7 @@ Sure, here are all the questions numbered from 21 onwards:
 
 ### 22.
 **Question:** Given a string array, write a function to group anagrams together. What is the most efficient way to achieve this?
+
 - A. Sort each string and use a hashmap to group them
 - B. Compare each string with every other string and group them
 - C. Sort the entire array and then find groups
@@ -661,6 +663,7 @@ Sure, here are all the questions numbered from 21 onwards:
 
 ### 23.
 **Question:** How would you check if a singly linked list is a palindrome?
+
 - A. Reverse the linked list and compare with the original
 - B. Use a stack to store the first half, then compare while traversing the second half
 - C. Use two pointers, one fast and one slow, to find the middle and compare halves
@@ -670,6 +673,7 @@ Sure, here are all the questions numbered from 21 onwards:
 
 ### 24.
 **Question:** How would you implement a circular queue using an array?
+
 - A. Use a fixed-size array and two pointers, one for the front and one for the rear
 - B. Use a dynamic array that resizes as needed
 - C. Use a single pointer that increments and wraps around when the end of the array is reached
@@ -679,6 +683,7 @@ Sure, here are all the questions numbered from 21 onwards:
 
 ### 25.
 **Question:** How can you find the middle element of a singly linked list in one pass?
+
 - A. Use a slow and a fast pointer, where the fast pointer moves two steps for each one step of the slow pointer
 - B. Count the elements first, then traverse to the middle
 - C. Use a stack to store elements and then pop half the elements
@@ -688,6 +693,7 @@ Sure, here are all the questions numbered from 21 onwards:
 
 ### 26.
 **Question:** Given an array of n integers, find the kth smallest element in linear time.
+
 - A. Sort the array and return the kth element
 - B. Use a min-heap to extract the minimum k times
 - C. Use the Quickselect algorithm
@@ -697,6 +703,7 @@ Sure, here are all the questions numbered from 21 onwards:
 
 ### 27.
 **Question:** How would you check for balanced parentheses in an expression string?
+
 - A. Use a stack to push opening brackets and pop for closing brackets
 - B. Use counters for each type of bracket
 - C. Traverse the string and directly match pairs
@@ -706,6 +713,7 @@ Sure, here are all the questions numbered from 21 onwards:
 
 ### 28.
 **Question:** How can you sort a linked list in O(n log n) time complexity?
+
 - A. Use bubble sort
 - B. Use merge sort
 - C. Use quicksort
@@ -715,6 +723,7 @@ Sure, here are all the questions numbered from 21 onwards:
 
 ### 29.
 **Question:** How would you implement a priority queue ?
+
 - A. Use an array where each element has an associated priority
 - B. Use a linked list where each element has an associated priority
 - C. Use a binary heap to efficiently manage the priorities
@@ -724,6 +733,7 @@ Sure, here are all the questions numbered from 21 onwards:
 
 ### 30.
 **Question:** Given an unsorted array of integers, find the length of the longest consecutive elements sequence. Your algorithm should run in O(n) complexity.
+
 - A. Sort the array and find the longest consecutive subsequence
 - B. Use a hashmap to keep track of consecutive sequences
 - C. Use a set to store elements and then iterate to find the longest sequence
@@ -736,6 +746,7 @@ Sure, here are all the questions numbered from 21 onwards:
 
 ### 32.
 **Question:** What is the time complexity of finding the intersection of two sorted linked lists?
+
 - A. O(n + m)
 - B. O(n * m)
 - C. O(n log m)
@@ -770,6 +781,7 @@ public class Main {
 
 ### 34.
 **Question:** What is the most efficient way to merge two balanced binary search trees?
+
 - A. Perform an inorder traversal of both trees, merge the two sorted lists, and build a balanced BST from the merged list
 - B. Insert each element of the second tree into the first tree
 - C. Perform a level order traversal of both trees and merge them
@@ -779,6 +791,7 @@ public class Main {
 
 ### 35.
 **Question:** Which of the following algorithms can be used to find the shortest path in a weighted graph with negative weights but no negative cycles?
+
 - A. Dijkstra's algorithm
 - B. Prim's algorithm
 - C. Floyd-Warshall algorithm
@@ -843,6 +856,7 @@ public class Main {
 
 ### 38.
 **Question:** Which sorting algorithm is the most efficient in the average case for sorting a large number of elements?
+
 - A. Bubble sort
 - B. Insertion sort
 - C. Merge sort
