@@ -915,3 +915,882 @@ public class Main {
 
 **Answer:** B
 
+### 41.
+**Question:** What will be the output of the following C++ code?
+
+```cpp
+#include <iostream>
+#include <vector>
+#include <algorithm>
+
+int main() {
+    std::vector<int> vec = {3, 1, 4, 1, 5, 9, 2, 6, 5, 3, 5};
+    std::sort(vec.begin(), vec.end(), std::greater<int>());
+    auto it = std::unique(vec.begin(), vec.end());
+    vec.resize(std::distance(vec.begin(), it));
+    for(int i : vec) std::cout << i << " ";
+    return 0;
+}
+```
+- A. 9 6 5 4 3 2 1
+- B. 5 4 3 2 1
+- C. 9 6 5 4 3 1
+- D. 9 5 4 3 2 1
+
+**Answer:** A
+
+### 42.
+**Question:** What is the time complexity of merging two balanced binary search trees of size n and m respectively?
+
+- A. O(n + m)
+- B. O(n log m)
+- C. O(n * m)
+- D. O(n log n + m log m)
+
+**Answer:** A
+
+### 43.
+**Question:** What is the output of the following Java code?
+
+```java
+import java.util.*;
+
+public class Main {
+    public static void main(String[] args) {
+        Map<String, Integer> map = new HashMap<>();
+        map.put("apple", 3);
+        map.put("banana", 2);
+        map.put("cherry", 5);
+        map.put("date", 2);
+        System.out.println(map.get("banana") + map.get("date"));
+    }
+}
+```
+- A. 2
+- B. 3
+- C. 4
+- D. 5
+
+**Answer:** C
+
+### 44.
+**Question:** How would you find the longest common subsequence of two strings?
+
+- A. Use dynamic programming to build a table of solutions to subproblems
+- B. Use a stack to store intermediate results
+- C. Use a queue to manage different subsequence states
+- D. Use a hash table to store subsequence lengths
+
+**Answer:** A
+
+### 45.
+**Question:** What does the following C++ function do?
+
+```cpp
+int func(const std::vector<int>& vec) {
+    int sum = 0, maxSum = INT_MIN;
+    for (int num : vec) {
+        sum = std::max(num, sum + num);
+        maxSum = std::max(maxSum, sum);
+    }
+    return maxSum;
+}
+```
+- A. Finds the maximum element in the vector
+- B. Finds the maximum sum of a subarray
+- C. Finds the sum of all elements
+- D. Finds the maximum product of a subarray
+
+**Answer:** B
+
+### 46.
+**Question:** What is the result of running the following Java code?
+
+```java
+import java.util.*;
+
+public class Main {
+    public static void main(String[] args) {
+        Deque<Integer> deque = new ArrayDeque<>();
+        deque.add(1);
+        deque.addFirst(2);
+        deque.addLast(3);
+        System.out.println(deque.pollFirst());
+        System.out.println(deque.pollLast());
+        System.out.println(deque.poll());
+    }
+}
+```
+- A. 1 3 2
+- B. 2 3 1
+- C. 2 1 3
+- D. 1 2 3
+
+**Answer:** B
+
+### 47.
+**Question:** Which of the following data structures is most appropriate for implementing an LRU (Least Recently Used) cache?
+
+- A. Array
+- B. Stack
+- C. Queue
+- D. HashMap combined with a Doubly Linked List
+
+**Answer:** D
+
+### 48.
+**Question:** What will be the output of the following C++ code?
+
+```cpp
+#include <iostream>
+#include <list>
+
+int main() {
+    std::list<int> lst = {1, 2, 3, 4, 5};
+    auto it = lst.begin();
+    std::advance(it, 3);
+    lst.insert(it, 10);
+    for (int x : lst) std::cout << x << " ";
+    return 0;
+}
+```
+- A. 1 2 3 4 10 5
+- B. 1 2 3 10 4 5
+- C. 1 10 2 3 4 5
+- D. 10 1 2 3 4 5
+
+**Answer:** B
+
+### 49.
+**Question:** What is the output of the following Java code?
+
+```java
+import java.util.*;
+
+public class Main {
+    public static void main(String[] args) {
+        PriorityQueue<Integer> pq = new PriorityQueue<>(Collections.reverseOrder());
+        pq.add(3);
+        pq.add(1);
+        pq.add(4);
+        pq.add(1);
+        pq.add(5);
+        while (!pq.isEmpty()) {
+            System.out.print(pq.poll() + " ");
+        }
+    }
+}
+```
+- A. 1 1 3 4 5
+- B. 5 4 3 1 1
+- C. 5 3 4 1 1
+- D. 1 3 4 5 1
+
+**Answer:** B
+
+### 50.
+**Question:** What does the following C++ function do?
+
+```cpp
+void func(std::stack<int>& s) {
+    if (s.empty()) return;
+    int x = s.top();
+    s.pop();
+    func(s);
+    s.push(x);
+}
+```
+- A. Sorts the stack in ascending order
+- B. Sorts the stack in descending order
+- C. Reverses the stack
+- D. None of above
+
+**Answer:** D
+
+### 51.
+**Question:** What is the output of the following Java code?
+
+```java
+import java.util.*;
+
+public class Main {
+    public static void main(String[] args) {
+        Set<String> set = new TreeSet<>();
+        set.add("banana");
+        set.add("apple");
+        set.add("cherry");
+        set.add("date");
+        for (String s : set) {
+            System.out.print(s + " ");
+        }
+    }
+}
+```
+- A. apple banana cherry date
+- B. banana apple cherry date
+- C. date cherry banana apple
+- D. apple banana date cherry
+
+**Answer:** A
+
+### 52.
+**Question:** What will be the output of the following C++ code?
+
+```cpp
+#include <iostream>
+#include <set>
+
+int main() {
+    std::set<int> s = {1, 2, 3, 4, 5};
+    s.erase(3);
+    s.insert(6);
+    for (int x : s) std::cout << x << " ";
+    return 0;
+}
+```
+- A. 1 2 4 5 6
+- B. 1 2 3 4 5 6
+- C. 1 2 4 5
+- D. 1 2 4 5 6 3
+
+**Answer:** A
+
+### 53.
+**Question:** What is the output of the following Java code?
+
+```java
+import java.util.*;
+
+public class Main {
+    public static void main(String[] args) {
+        List<String> list = new ArrayList<>(Arrays.asList("a", "b", "c", "d"));
+        ListIterator<String> it = list.listIterator();
+        while (it.hasNext()) {
+            String s = it.next();
+            if (s.equals("b")) it.add("e");
+        }
+        for (String s : list) {
+            System.out.print(s + " ");
+        }
+    }
+}
+```
+- A. a b c d e
+- B. a b e c d
+- C. a e b c d
+- D. a b c d
+
+**Answer:** B
+
+### 54.
+**Question:** What is the output of the following C++ code?
+
+```cpp
+#include <iostream>
+#include <vector>
+#include <algorithm>
+
+int main() {
+    std::vector<int> vec = {1, 2, 3, 4, 5};
+    std::rotate(vec.begin(), vec.begin() + 2, vec.end());
+    for (int x : vec) std::cout << x << " ";
+    return 0;
+}
+```
+- A. 1 2 3 4 5
+- B. 3 4 5 1 2
+- C. 4 5 1 2 3
+- D. 2 3 4 5 1
+
+**Answer:** B
+
+### 55.
+**Question:** What is the output of the following Java code?
+
+```java
+import java.util.*;
+
+public class Main {
+    public static void main(String[] args) {
+        List<Integer> list = Arrays.asList(1, 2, 3, 4, 5);
+        Collections.rotate(list, 2);
+        for (int i : list) {
+            System.out.print(i + " ");
+        }
+    }
+}
+```
+- A. 1 2 3 4 5
+- B. 4 5 1 2 3
+- C.
+
+ 3 4 5 1 2
+- D. 2 3 4 5 1
+
+**Answer:** C
+
+### 56.
+**Question:** Given a binary tree, how can you find its maximum depth?
+
+- A. Use a queue for level order traversal and count levels
+- B. Use a stack for in-order traversal and count nodes
+- C. Use depth-first search (DFS) and keep track of the depth
+- D. Use breadth-first search (BFS) and keep track of the depth
+
+**Answer:** C
+
+### 57.
+**Question:** What is the output of the following C++ code?
+
+```cpp
+#include <iostream>
+#include <stack>
+
+void sortStack(std::stack<int>& s) {
+    if (!s.empty()) {
+        int x = s.top();
+        s.pop();
+        sortStack(s);
+        insertSorted(s, x);
+    }
+}
+
+void insertSorted(std::stack<int>& s, int x) {
+    if (s.empty() || x > s.top()) {
+        s.push(x);
+        return;
+    }
+    int temp = s.top();
+    s.pop();
+    insertSorted(s, x);
+    s.push(temp);
+}
+
+int main() {
+    std::stack<int> s;
+    s.push(3);
+    s.push(1);
+    s.push(4);
+    s.push(2);
+    sortStack(s);
+    while (!s.empty()) {
+        std::cout << s.top() << " ";
+        s.pop();
+    }
+    return 0;
+}
+```
+- A. 1 2 3 4
+- B. 4 3 2 1
+- C. 2 1 4 3
+- D. 3 4 2 1
+
+**Answer:** B
+
+### 58.
+**Question:** What will be the output of the following Java code?
+
+```java
+import java.util.*;
+
+public class Main {
+    public static void main(String[] args) {
+        List<Integer> list = Arrays.asList(1, 2, 3, 4, 5);
+        Collections.shuffle(list);
+        for (int i : list) {
+            System.out.print(i + " ");
+        }
+    }
+}
+```
+- A. 1 2 3 4 5
+- B. 5 4 3 2 1
+- C. Random permutation of 1 2 3 4 5
+- D. 1 3 2 4 5
+
+**Answer:** C
+
+### 59.
+**Question:** What does the following C++ function do?
+
+```cpp
+bool isBalanced(const std::string& str) {
+    std::stack<char> s;
+    for (char ch : str) {
+        if (ch == '(' || ch == '{' || ch == '[') {
+            s.push(ch);
+        } else {
+            if (s.empty()) return false;
+            char top = s.top();
+            if ((ch == ')' && top != '(') || (ch == '}' && top != '{') || (ch == ']' && top != '[')) {
+                return false;
+            }
+            s.pop();
+        }
+    }
+    return s.empty();
+}
+```
+- A. Checks if the string has balanced parentheses, brackets, and braces
+- B. Checks if the string is a palindrome
+- C. Checks if the string has balanced quotes
+- D. Checks if the string is a valid identifier
+
+**Answer:** A
+
+### 60.
+**Question:** What will be the output of the following Java code?
+
+```java
+import java.util.*;
+
+public class Main {
+    public static void main(String[] args) {
+        Map<String, Integer> map = new LinkedHashMap<>();
+        map.put("one", 1);
+        map.put("two", 2);
+        map.put("three", 3);
+        map.put("four", 4);
+        map.put("five", 5);
+        map.remove("three");
+        for (String key : map.keySet()) {
+            System.out.print(key + " ");
+        }
+    }
+}
+```
+- A. one two three four five
+- B. one two four five
+- C. two four five
+- D. one two three five
+
+**Answer:** B
+
+### 61.
+**Question:** Given an undirected graph, how would you determine if it contains a cycle?
+
+- A. Use Depth First Search (DFS) 
+- B. Use Breadth First Search (BFS)
+- C. Use a union-find data structure 
+- D. All of Above
+
+**Answer:** D
+
+### 62.
+**Question:** What is the time complexity of the Floyd-Warshall algorithm for finding the shortest paths in a weighted graph with n vertices?
+
+- A. O(n)
+- B. O(n log n)
+- C. O(n^2)
+- D. O(n^3)
+
+**Answer:** D
+
+### 63.
+**Question:** Which of the following methods would be most efficient for finding the longest increasing subsequence in an array?
+
+- A. Simple Dynamic Programming 
+- B. Using a stack to store the sequence
+- C. Using a queue to store the sequence
+- D. Dynamic Programming with Binary Search 
+
+**Answer:** D
+
+### 64.
+**Question:** How would you count the number of set bits in an integer in the most efficient way?
+- A. Use a loop to count bits one by one
+- B. Use the Brian Kernighan's algorithm
+- C. Use a stack to count the bits
+- D. Use a queue to count the bits
+
+**Answer:** B
+
+### 65.
+**Question:** What does the following C++ function do?
+
+```cpp
+int fun(const std::vector<int>& vec) {
+    int result = 0;
+    for (int num : vec) {
+        result ^= num;
+    }
+    return result;
+}
+```
+- A. Finds the maximum element in the vector
+- B. Finds the minimum element in the vector
+- C. Finds the unique element in the vector where every other element appears twice
+- D. Finds the sum of all elements in the vector
+
+**Answer:** C
+
+### 66.
+**Question:** Given a linked list, how would you reverse the nodes of a linked list k at a time and return its modified list?
+- A. Use a stack to reverse the nodes k at a time
+- B. Use a queue to reverse the nodes k at a time
+- C. Use recursion to reverse the nodes k at a time
+- D. Both A and C
+
+**Answer:** D
+
+### 67.
+**Question:** Given a linked list, how can you detect if there is a cycle in it?
+- A. Use a stack to store visited nodes
+- B. Use a queue to store visited nodes
+- C. Use two pointers, one moving twice as fast as the other (Floyd’s Cycle Detection Algorithm)
+- D. Use recursion to detect the cycle
+
+**Answer:** C
+
+### 68.
+**Question:** What is the most efficient way to evaluate an arithmetic expression given in reverse Polish notation (postfix notation)?
+- A. Use a stack to evaluate the expression
+- B. Use a queue to evaluate the expression
+- C. Use recursion to evaluate the expression
+- D. Use a linked list to evaluate the expression
+
+**Answer:** A
+
+### 69.
+**Question:** What will be the output of the following C++ code?
+
+```cpp
+#include <iostream>
+#include <vector>
+
+int main() {
+    std::vector<int> vec = {3, 5, 6, 7};
+    int x = vec[0];
+    for (int i = 1; i < vec.size(); ++i) {
+        x &= vec[i];
+    }
+    std::cout << x;
+    return 0;
+}
+```
+- A. 0
+- B. 3
+- C. 1
+- D. 2
+
+**Answer:** A
+
+### 70.
+**Question:** What does the following C++ function do?
+
+```cpp
+int fun(const std::vector<int>& vec, int n) {
+    int x1 = vec[0];
+    int x2 = 1;
+    for (int i = 1; i < vec.size(); i++) {
+        x1 = x1 ^ vec[i];
+    }
+    for (int i = 2; i <= n; i++) {
+        x2 = x2 ^ i;
+    }
+    return (x1 ^ x2);
+}
+```
+
+- A. Finds the missing number in an array containing numbers from 1 to n with one number missing
+- B. Finds the duplicate number in an array containing numbers from 1 to n
+- C. Finds the unique number in an array where all numbers except one appear twice
+- D. Finds the sum of all numbers in the array
+
+**Answer:** A
+
+### 71.
+**Question:** Given a graph represented as an adjacency matrix, how would you find the number of strongly connected components?
+
+- A. Use Depth First Search (DFS) directly on the graph
+- B. Use Kosaraju’s algorithm
+- C. Use Prim’s algorithm
+- D. Use Dijkstra’s algorithm
+
+**Answer:** B
+
+### 72.
+**Question:** What is the time complexity of the Bellman-Ford algorithm for finding the shortest path in a graph with V vertices and E edges?
+- A. O(V)
+- B. O(E log V)
+- C. O(V^2)
+- D. O(VE)
+
+**Answer:** D
+
+### 73.
+**Question:** Given a 2D grid of characters and a word, write a function that returns true if the word exists in the grid. The word can be constructed from letters of sequentially adjacent cells, where "adjacent" cells are horizontally or vertically neighboring. The same letter cell may not be used more than once. Which algorithm would be most suitable?
+- A. Depth First Search (DFS) with backtracking
+- B. Breadth First Search (BFS)
+- C. Dynamic Programming
+- D. Binary Search
+
+**Answer:** A
+
+### 74.
+**Question:** What is the output of the following C++ code?
+
+```cpp
+#include <iostream>
+
+int main() {
+    unsigned int x = 1 << 31;
+    std::cout << x << " ";
+    x = x >> 31;
+    std::cout << x;
+    return 0;
+}
+```
+- A. 0 1
+- B. 2147483648 1
+- C. 2147483648 0
+- D. 0 0
+
+**Answer:** B
+
+### 75.
+**Question:** What is the best approach to solve the problem of finding the maximum product subarray in an array of integers?
+
+- A. Use a dynamic programming approach to keep track of the maximum and minimum products ending at each index
+- B. Sort the array and find the product of the last three elements
+- C. Use a stack to keep track of the maximum and minimum products
+- D. Use a queue to keep track of the maximum and minimum products
+
+**Answer:** A
+
+### 76.
+**Question:** Given an array of n integers where each integer is in the range from 1 to n, some elements appear twice and others appear once. Find all the elements that appear twice. Your algorithm should run in O(n) time and use only constant extra space. Which technique is **most** suitable?
+- A. Use a hash set to track duplicates
+- B. Use an additional array to count occurrences
+- C. Use the elements as indices and mark visited positions
+- D. Sort the array and find duplicates
+
+**Answer:** C
+
+### 77.
+**Question:** What will be the output of the following C++ code?
+
+```cpp
+#include <iostream>
+
+int main() {
+    int x = 6;  // 0110
+    int y = 3;  // 0011
+    std::cout << (x & y) << " ";   
+    std::cout << (x | y) << " ";   
+    std::cout << (x ^ y) << " ";  
+    std::cout << (~x) << " ";      
+    std::cout << (x << 1) << " ";  
+    std::cout << (x >> 1);         
+    return 0;
+}
+```
+- A. 2 7 5 -7 12 3
+- B. 2 7 5 -6 12 3
+- C. 2 7 5 -7 12 6
+- D. 2 6 5 -7 12 3
+
+**Answer:** B
+
+### 78.
+**Question:** What is the output of the following Java code?
+
+```java
+import java.util.*;
+
+public class Main {
+    public static void main(String[] args) {
+        Deque<Integer> deque = new LinkedList<>();
+        deque.offerFirst(1);
+        deque.offerLast(2);
+        deque.offerFirst(3);
+        deque.offerLast(4);
+        System.out.println(deque.pollFirst());
+        System.out.println(deque.pollLast());
+        System.out.println(deque.pollFirst());
+        System.out.println(deque.pollLast());
+    }
+}
+```
+- A. 1 2 3 4
+- B. 3 4 1 2
+- C. 3 4 2 1
+- D. 1 4 3 2
+
+**Answer:** B
+
+### 79.
+**Question:** Given a linked list, how would you merge two sorted linked lists to produce a single sorted linked list?
+
+- A. Use a stack to merge the lists
+- B. Use a queue to merge the lists
+- C. Use two pointers to traverse the lists and merge them
+- D. Use a priority queue to merge the lists
+
+**Answer:** C
+
+### 80.
+**Question:** What does the following C++ function do?
+
+```cpp
+int fun(const std::vector<int>& vec, int k) {
+    int max_sum = INT_MIN, window_sum = 0;
+    for (int i = 0; i < vec.size(); i++) {
+        window_sum += vec[i];
+        if (i >= k - 1) {
+            max_sum = std::max(max_sum, window_sum);
+            window_sum -= vec[i - (k - 1)];
+        }
+    }
+    return max_sum;
+}
+```
+- A. Finds the maximum sum of any subarray of length k
+- B. Finds the maximum sum of any subarray
+- C. Finds the minimum sum of any subarray of length k
+- D. Finds the minimum sum of any subarray
+
+**Answer:** A
+
+### 81.
+**Question:** Given a sorted array, how would you find the first occurrence of a target value using binary search?
+
+- A. Perform a standard binary search and return the found index
+- B. Modify the binary search to continue searching in the left half even after finding the target
+- C. Use a linear search to find the first occurrence
+- D. Use a hash map to store occurrences and return the first
+
+**Answer:** B
+
+### 82.
+**Question:** What is the time complexity of Heap Sort in the worst case?
+
+- A. O(n log n)
+- B. O(n^2)
+- C. O(n)
+- D. O(log n)
+
+**Answer:** A
+
+### 83.
+**Question:** Which of the following sorting algorithms is the most efficient for sorting a nearly sorted array?
+
+- A. Quick Sort
+- B. Merge Sort
+- C. Bubble Sort
+- D. Insertion Sort
+
+**Answer:** D
+
+### 84.
+**Question:** What is the output of the following C++ code?
+
+```cpp
+#include <iostream>
+#include <vector>
+#include <algorithm>
+
+int main() {
+    std::vector<int> vec = {5, 3, 8, 6, 2};
+    std::partial_sort(vec.begin(), vec.begin() + 3, vec.end());
+    for (int i : vec) std::cout << i << " ";
+    return 0;
+}
+```
+- A. 2 3 5 6 8
+- B. 2 3 5 8 6
+- C. 5 3 8 6 2
+- D. 5 6 8 2 3
+
+**Answer:** B
+
+### 85.
+**Question:** Given an array of n integers, how would you find the kth largest element using a min-heap?
+
+- A. Build a max-heap and extract the maximum k times
+- B. Build a min-heap of the first k elements and for each remaining element, if it is larger than the root of the heap, replace the root and heapify
+- C. Sort the array and return the kth largest element
+- D. Use a binary search to find the kth largest element
+
+**Answer:** B
+
+### 86.
+**Question:** What is the time complexity of the Quickselect algorithm for finding the kth smallest element in the average case?
+
+- A. O(n log n)
+- B. O(n)
+- C. O(log n)
+- D. O(n^2)
+
+**Answer:** B
+
+### 87.
+**Question:** How would you merge k sorted linked lists into one sorted linked list efficiently?
+
+- A. Use a binary search approach to merge the lists pair by pair
+- B. Use a min-heap to extract the smallest element from the heads of the lists
+- C. Concatenate all lists and sort them
+- D. Use a stack to merge the lists
+
+**Answer:** B
+
+### 88.
+**Question:** What will be the output of the following C++ code?
+
+```cpp
+#include <iostream>
+#include <vector>
+#include <queue>
+
+int main() {
+    std::priority_queue<int, std::vector<int>, std::greater<int>> minHeap;
+    minHeap.push(5);
+    minHeap.push(3);
+    minHeap.push(8);
+    minHeap.push(6);
+    minHeap.push(2);
+    std::cout << minHeap.top() << " ";
+    minHeap.pop();
+    std::cout << minHeap.top() << " ";
+    return 0;
+}
+```
+- A. 8 6
+- B. 2 3
+- C. 5 3
+- D. 3 2
+
+**Answer:** B
+
+### 89.
+**Question:** What is the best approach to sort an array of 0s, 1s, and 2s?
+
+- A. Use a comparison-based sorting algorithm like quicksort or mergesort
+- B. Use a counting sort
+- C. Use the Dutch National Flag algorithm
+- D. Use bubble sort
+
+**Answer:** C
+
+### 90.
+**Question:** What is the time complexity of searching for an element in a binary search tree (BST) in the worst case?
+
+- A. O(1)
+- B. O(log n)
+- C. O(n)
+- D. O(n log n)
+
+**Answer:** C
+
+### 91.
+**Question:** Given an array of integers, how would you find the median of the array efficiently?
+
+- A. Sort the array and return the middle element
+- B. Use a max-heap for the lower half and a min-heap for the upper half, and balance the heaps as you iterate through the array
+- C. Use a stack to keep track of the median
+- D. Use binary search to find the median
+
+**Answer:** B
+
+
+
