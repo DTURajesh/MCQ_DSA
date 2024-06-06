@@ -22,6 +22,8 @@ B) 15
 C) Syntax Error  
 D) 3
 
+**Answer:** D) 3
+
 2. What will be the output of the following code snippet?
 ```cpp
 void solve() {
@@ -44,6 +46,8 @@ A) 1 2 3 4 5
 B) 5 4 3 2 1  
 C) 1 3 5 2 3  
 D) 5 3 1 2 4
+
+**Answer:** D) 5 3 1 2 4
 
 3. Given a binary tree, what will be the output of the following code snippet ?
 ```cpp
