@@ -1,4 +1,3 @@
-
 # MCQ_DSA
 
 1. What will the output of the following code snippet?
