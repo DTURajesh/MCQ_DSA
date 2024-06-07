@@ -1794,5 +1794,519 @@ int main() {
 
 **Answer:** B
 
+### 92.
+**Question:** What will be the output of the following C++ code?
+
+```cpp
+#include <iostream>
+
+void fun(int* ptr) {
+    *ptr = 20;
+}
+
+int main() {
+    int x = 10;
+    int* p = &x;
+    fun(p);
+    std::cout << x;
+    return 0;
+}
+```
+- A. 10
+- B. 20
+- C. Garbage value
+- D. Compilation error
+
+**Answer:** B
+
+### 93.
+**Question:** What will be the output of the following C code?
+
+```c
+#include <stdio.h>
+
+void fun(int arr[], int size) {
+    for (int i = 0; i < size; i++) {
+        arr[i] *= 2;
+    }
+}
+
+int main() {
+    int arr[] = {1, 2, 3, 4, 5};
+    int size = sizeof(arr) / sizeof(arr[0]);
+    fun(arr, size);
+    for (int i = 0; i < size; i++) {
+        printf("%d ", arr[i]);
+    }
+    return 0;
+}
+```
+- A. 1 2 3 4 5
+- B. 2 4 6 8 10
+- C. 0 0 0 0 0
+- D. Compilation error
+
+**Answer:** B
+
+### 94.
+**Question:** What does the following C++ function do?
+
+```cpp
+#include <iostream>
+
+void DoSomething(int* a, int* b) {
+    int temp = *a;
+    *a = *b;
+    *b = temp;
+}
+
+int main() {
+    int x = 5, y = 10;
+    DoSomething(&x, &y);
+    std::cout << x << " " << y;
+    return 0;
+}
+```
+- A. Swaps the values of x and y
+- B. Does nothing
+- C. Causes a segmentation fault
+- D. Prints garbage values
+
+**Answer:** A
+
+### 95.
+**Question:** What will be the output of the following C code?
+
+```c
+#include <stdio.h>
+
+void helper(char* str) {
+    int length = 0;
+    while (str[length] != '\0') {
+        length++;
+    }
+    for (int i = 0; i < length / 2; i++) {
+        char temp = str[i];
+        str[i] = str[length - i - 1];
+        str[length - i - 1] = temp;
+    }
+}
+
+int main() {
+    char str[] = "hello";
+    helper(str);
+    printf("%s", str);
+    return 0;
+}
+```
+- A. hello
+- B. olleh
+- C. hlelo
+- D. Compilation error
+
+**Answer:** B
+
+### 96.
+**Question:** What will be the output of the following C++ code?
+
+```cpp
+#include <iostream>
+
+int main() {
+    char str[] = "hello";
+    char* p = str;
+    while (*p != '\0') {
+        ++*p++;
+    }
+    std::cout << str;
+    return 0;
+}
+```
+- A. hello
+- B. ifmmp
+- C. hemlo
+- D. Compilation error
+
+**Answer:** B
+
+### 97.
+**Question:** What is the output of the following C++ code?
+
+```cpp
+#include <iostream>
+
+int main() {
+    int arr[] = {10, 20, 30, 40, 50};
+    int* p = arr;
+    *(p + 2) = 100;
+    for (int i = 0; i < 5; i++) {
+        std::cout << arr[i] << " ";
+    }
+    return 0;
+}
+```
+- A. 10 20 100 40 50
+- B. 10 20 30 100 50
+- C. 10 20 30 40 50
+- D. 10 100 30 40 50
+
+**Answer:** A
+
+### 98.
+**Question:** What will be the output of the following C code?
+
+```c
+#include <stdio.h>
+
+int main() {
+    char *ptr = "hello";
+    ptr[0] = 'H';
+    printf("%s", ptr);
+    return 0;
+}
+```
+- A. Hello
+- B. hello
+- C. Segmentation fault
+- D. Compilation error
+
+**Answer:** C
+
+### 99.
+**Question:** What is the output of the following C++ code?
+
+```cpp
+#include <iostream>
+
+int main() {
+    int arr[] = {1, 2, 3, 4, 5};
+    int* p = arr + 3;
+    std::cout << *p << " ";
+    p--;
+    std::cout << *p;
+    return 0;
+}
+```
+- A. 4 3
+- B. 4 5
+- C. 3 4
+- D. 3 2
+
+**Answer:** A
+
+### 100.
+**Question:** What will be the output of the following C++ code?
+
+```cpp
+#include <iostream>
+
+void func(const char* str) {
+    while (*str) {
+        std::cout << *str++;
+    }
+}
+
+int main() {
+    char str[] = "example";
+    func(str);
+    return 0;
+}
+```
+- A. example
+- B. e x a m p l e
+- C. eexample
+- D. Compilation error
+
+**Answer:** A
+
+### 101.
+**Question:** What will be the output of the following C code?
+
+```c
+#include <stdio.h>
+
+void func(char** ptr) {
+    *ptr = "world";
+}
+
+int main() {
+    char* str = "hello";
+    func(&str);
+    printf("%s", str);
+    return 0;
+}
+```
+- A. hello
+- B. world
+- C. Segmentation fault
+- D. Compilation error
+
+**Answer:** B
+
+Sure, here are 10 more high-order thinking problems in C/C++ that do not match any of the above problems:
+
+### 102.
+**Question:** What will be the output of the following C++ code?
+
+```cpp
+#include <iostream>
+
+void helper(int*& ptr) {
+    static int y = 20;
+    ptr = &y;
+}
+
+int main() {
+    int x = 10;
+    int* p = &x;
+    helper(p);
+    std::cout << *p;
+    return 0;
+}
+```
+- A. 10
+- B. 20
+- C. Garbage value
+- D. Compilation error
+
+**Answer:** B
+
+### 103.
+**Question:** What is the output of the following C code?
+
+```c
+#include <stdio.h>
+
+void konHuMe(char** str1, char** str2) {
+    char* temp = *str1;
+    *str1 = *str2;
+    *str2 = temp;
+}
+
+int main() {
+    char* str1 = "hello";
+    char* str2 = "world";
+    konHuMe(&str1, &str2);
+    printf("%s %s", str1, str2);
+    return 0;
+}
+```
+- A. hello world
+- B. world hello
+- C. hello hello
+- D. world world
+
+**Answer:** B
+
+### 104.
+**Question:** What will be the output of the following C++ code?
+
+```cpp
+#include <iostream>
+#include <cstring>
+
+int main() {
+    char str1[] = "Hello";
+    char str2[] = "World";
+    strcat(str1, str2);
+    std::cout << str1;
+    return 0;
+}
+```
+- A. HelloWorld
+- B. Hello World
+- C. Hello
+- D. Compilation error
+
+**Answer:** D Compilation error
+
+### 105.
+**Question:** What does the following C function do?
+
+```c
+#include <stdio.h>
+
+int mystery(int a, int b) {
+    if (b == 0) return a;
+    return mystery(b, a % b);
+}
+
+int main() {
+    printf("%d", mystery(56, 98));
+    return 0;
+}
+```
+- A. 56
+- B. 2
+- C. 14
+- D. 20
+
+**Answer:** C 14
+
+### 106.
+**Question:** What is the output of the following C++ code?
+
+```cpp
+#include <iostream>
+#include <vector>
+
+int main() {
+    std::vector<int> vec = {1, 2, 3, 4, 5};
+    std::vector<int>::iterator it = vec.begin();
+    while (it != vec.end()) {
+        if (*it == 3) {
+            it = vec.erase(it);
+        } else {
+            ++it;
+        }
+    }
+    for (int i : vec) std::cout << i << " ";
+    return 0;
+}
+```
+- A. 1 2 4 5
+- B. 1 2 3 4 5
+- C. 1 2 3 5
+- D. 1 3 4 5
+
+**Answer:** A
+
+### 107.
+**Question:** What will be the output of the following C code?
+
+```c
+#include <stdio.h>
+
+void helper(int arr[], int size) {
+    for (int i = 0; i < size; i++) {
+        printf("%d ", arr[i]);
+    }
+}
+
+int main() {
+    int arr[] = {1, 2, 3, 4, 5};
+    helper(arr + 2, 3);
+    return 0;
+}
+```
+- A. 1 2 3
+- B. 3 4 5
+- C. 2 3 4
+- D. 3 4 5 0 0
+
+**Answer:** B
+
+### 108.
+**Question:** What does the following C++ code do?
+
+```cpp
+#include <iostream>
+
+void helper(int* arr, int size) {
+    for (int i = 0; i < size / 2; i++) {
+        int temp = arr[i];
+        arr[i] = arr[size - i - 1];
+        arr[size - i - 1] = temp;
+    }
+}
+
+int main() {
+    int arr[] = {1, 2, 3, 4, 5};
+    helper(arr, 5);
+    for (int i = 0; i < 5; i++) std::cout << arr[i] << " ";
+    return 0;
+}
+```
+- A. Reverses the array
+- B. Sorts the array
+- C. Shifts elements to the right
+- D. Shifts elements to the left
+
+**Answer:** A
+
+### 109.
+**Question:** What will be the output of the following C++ code?
+
+```cpp
+#include <iostream>
+
+int main() {
+    char str[] = "ABCDE";
+    char* ptr = str;
+    *ptr++ = 'Z';
+    std::cout << str;
+    return 0;
+}
+```
+- A. ZBCDE
+- B. ABCDE
+- C. ZABCDE
+- D. Compilation error
+
+**Answer:** A
+
+### 110.
+**Question:** What will be the output of the following C code?
+
+```c
+#include <stdio.h>
+#include <stdlib.h>
+
+void allocateArray(int** arr, int size) {
+    *arr = (int*)malloc(size * sizeof(int));
+    for (int i = 0; i < size; i++) {
+        (*arr)[i] = i + 1;
+    }
+}
+
+int main() {
+    int* arr;
+    allocateArray(&arr, 5);
+    for (int i = 0; i < 5; i++) {
+        printf("%d ", arr[i]);
+    }
+    free(arr);
+    return 0;
+}
+```
+- A. 0 1 2 3 4
+- B. 1 2 3 4 5
+- C. 0 0 0 0 0
+- D. Compilation error
+
+**Answer:** B
+
+### 111.
+**Question:** What does the following C++ function do?
+
+```cpp
+#include <iostream>
+
+bool fun(const char* str) {
+    int left = 0;
+    int right = strlen(str) - 1;
+    while (left < right) {
+        if (str[left] != str[right]) {
+            return false;
+        }
+        left++;
+        right--;
+    }
+    return true;
+}
+
+int main() {
+    const char* str = "radar";
+    std::cout << fun(str);
+    return 0;
+}
+```
+- A. Checks if the string is a palindrome
+- B. Reverses the string
+- C. Converts the string to uppercase
+- D. Checks if the string contains duplicate characters
+
+**Answer:** A
+
 
 
