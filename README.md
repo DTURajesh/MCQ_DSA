@@ -2308,5 +2308,713 @@ int main() {
 
 **Answer:** A
 
+### 112.
+**Question:** What will be the output of the following C++ code?
+
+```cpp
+#include <iostream>
+
+class Base {
+public:
+    virtual void show() {
+        std::cout << "Base" << std::endl;
+    }
+};
+
+class Derived : public Base {
+public:
+    void show() override {
+        std::cout << "Derived" << std::endl;
+    }
+};
+
+int main() {
+    Base* b = new Derived();
+    b->show();
+    delete b;
+    return 0;
+}
+```
+- A. Base
+- B. Derived
+- C. Compilation error
+- D. Runtime error
+
+**Answer:** B
+
+### 113.
+**Question:** What is the output of the following C++ code?
+
+```cpp
+#include <iostream>
+
+class Test {
+public:
+    int x;
+    Test(int x) : x(x) {}
+};
+
+int main() {
+    Test t1(5);
+    Test* ptr = &t1;
+    std::cout << ptr->x;
+    return 0;
+}
+```
+- A. 5
+- B. 0
+- C. Garbage value
+- D. Compilation error
+
+**Answer:** A
+
+### 114.
+**Question:** What will be the output of the following C++ code?
+
+```cpp
+#include <iostream>
+
+class A {
+public:
+    A() { std::cout << "A"; }
+    ~A() { std::cout << "B"; }
+};
+
+void func() {
+    A a;
+}
+
+int main() {
+    func();
+    std::cout << "C";
+    return 0;
+}
+```
+- A. AC
+- B. ABC
+- C. CAB
+- D. BAC
+
+**Answer:** B
+
+### 115.
+**Question:** What does the following C++ code do?
+
+```cpp
+#include <iostream>
+
+class Node {
+public:
+    int data;
+    Node* next;
+    Node(int val) : data(val), next(nullptr) {}
+};
+
+void append(Node*& head, int val) {
+    Node* newNode = new Node(val);
+    if (!head) {
+        head = newNode;
+        return;
+    }
+    Node* temp = head;
+    while (temp->next) {
+        temp = temp->next;
+    }
+    temp->next = newNode;
+}
+
+int main() {
+    Node* head = nullptr;
+    append(head, 1);
+    append(head, 2);
+    append(head, 3);
+    Node* temp = head;
+    while (temp) {
+        std::cout << temp->data << " ";
+        temp = temp->next;
+    }
+    return 0;
+}
+```
+- A. Creates a circular linked list
+- B. Creates a doubly linked list
+- C. Appends nodes to a singly linked list
+- D. Deletes nodes from a singly linked list
+
+**Answer:** C
+
+### 116.
+**Question:** What is the output of the following C++ code?
+
+```cpp
+#include <iostream>
+
+class Base {
+public:
+    virtual void display() {
+        std::cout << "Base";
+    }
+};
+
+class Derived : public Base {
+public:
+    void display() override {
+        std::cout << "Derived";
+    }
+};
+
+int main() {
+    Base b;
+    Derived d;
+    Base* ptr = &d;
+    ptr->display();
+    return 0;
+}
+```
+- A. Base
+- B. Derived
+- C. Compilation error
+- D. Runtime error
+
+**Answer:** B
+
+### 117.
+**Question:** What will be the output of the following C++ code?
+
+```cpp
+#include <iostream>
+
+class Test {
+public:
+    int x;
+    Test(int val) : x(val) {}
+    Test& operator=(const Test& other) {
+        x = other.x;
+        return *this;
+    }
+};
+
+int main() {
+    Test t1(5);
+    Test t2(10);
+    t2 = t1;
+    std::cout << t2.x;
+    return 0;
+}
+```
+- A. 5
+- B. 10
+- C. Compilation error
+- D. Runtime error
+
+**Answer:** A
+
+### 118.
+**Question:** What does the following C++ code do?
+
+```cpp
+#include <iostream>
+
+class Base {
+public:
+    virtual void show() = 0; 
+};
+
+class Derived : public Base {
+public:
+    void show() override {
+        std::cout << "Derived";
+    }
+};
+
+int main() {
+    Derived d;
+    d.show();
+    return 0;
+}
+```
+- A. Compilation error due to abstract class
+- B. Prints "Base"
+- C. Prints "Derived"
+- D. Runtime error
+
+**Answer:** C
+
+### 119.
+**Question:** What will be the output of the following C++ code?
+
+```cpp
+#include <iostream>
+
+class A {
+public:
+    A() { std::cout << "A"; }
+    virtual ~A() { std::cout << "B"; }
+};
+
+class B : public A {
+public:
+    B() { std::cout << "C"; }
+    ~B() { std::cout << "D"; }
+};
+
+int main() {
+    A* a = new B();
+    delete a;
+    return 0;
+}
+```
+- A. ACBD
+- B. ACDB
+- C. CADB
+- D. ABDC
+
+**Answer:** B
+
+### 120.
+**Question:** What is the output of the following C++ code?
+
+```cpp
+#include <iostream>
+
+class Test {
+public:
+    static int count;
+    Test() { count++; }
+};
+
+int Test::count = 0;
+
+int main() {
+    Test t1, t2, t3;
+    std::cout << Test::count;
+    return 0;
+}
+```
+- A. 0
+- B. 1
+- C. 2
+- D. 3
+
+**Answer:** D
+
+### 121.
+**Question:** What will be the output of the following C++ code?
+
+```cpp
+#include <iostream>
+
+class A {
+public:
+    virtual void show() {
+        std::cout << "A";
+    }
+};
+
+class B : public A {
+public:
+    void show() override {
+        std::cout << "B";
+    }
+};
+
+class C : public B {
+public:
+    void show() override {
+        std::cout << "C";
+    }
+};
+
+int main() {
+    A* a = new C();
+    a->show();
+    delete a;
+    return 0;
+}
+```
+- A. A
+- B. B
+- C. C
+- D. Compilation error
+
+**Answer:** C
+
+### 122.
+**Question:** What will be the output of the following C++ code?
+
+```cpp
+#include <iostream>
+#include <unordered_map>
+#include <vector>
+
+int helper(std::vector<int>& nums, int k) {
+    std::unordered_map<int, int> map;
+    int left = 0, right = 0, max_len = 0;
+    while (right < nums.size()) {
+        map[nums[right]]++;
+        while (map.size() > k) {
+            map[nums[left]]--;
+            if (map[nums[left]] == 0) {
+                map.erase(nums[left]);
+            }
+            left++;
+        }
+        max_len = std::max(max_len, right - left + 1);
+        right++;
+    }
+    return max_len;
+}
+
+int main() {
+    std::vector<int> nums = {1, 2, 1, 2, 3};
+    int k = 2;
+    std::cout << helper(nums, k);
+    return 0;
+}
+```
+- A. 2
+- B. 3
+- C. 4
+- D. 5
+
+**Answer:** C
+
+### 123.
+**Question:** What will be the output of the following C++ code?
+
+```cpp
+#include <iostream>
+#include <unordered_map>
+#include <vector>
+
+int helper(std::vector<int>& nums, int target) {
+    std::unordered_map<int, int> map;
+    int sum = 0, count = 0;
+    map[0] = 1;
+    for (int num : nums) {
+        sum += num;
+        if (map.find(sum - target) != map.end()) {
+            count += map[sum - target];
+        }
+        map[sum]++;
+    }
+    return count;
+}
+
+int main() {
+    std::vector<int> nums = {1, 1, 1};
+    int target = 2;
+    std::cout << helper(nums, target);
+    return 0;
+}
+```
+- A. 1
+- B. 2
+- C. 3
+- D. 4
+
+**Answer:** B
+
+### 124.
+**Question:** What will be the output of the following C++ code?
+
+```cpp
+#include <iostream>
+#include <unordered_map>
+#include <vector>
+
+std::vector<int> helper(std::vector<int>& nums, int k) {
+    std::unordered_map<int, int> map;
+    std::vector<int> result;
+    int left = 0;
+    for (int right = 0; right < nums.size(); right++) {
+        map[nums[right]]++;
+        if (right >= k - 1) {
+            result.push_back(map.size());
+            map[nums[left]]--;
+            if (map[nums[left]] == 0) {
+                map.erase(nums[left]);
+            }
+            left++;
+        }
+    }
+    return result;
+}
+
+int main() {
+    std::vector<int> nums = {1, 2, 1, 3, 4, 2, 3};
+    int k = 4;
+    std::vector<int> result = helper(nums, k);
+    for (int count : result) {
+        std::cout << count << " ";
+    }
+    return 0;
+}
+```
+- A. 3 4 4 3
+- B. 2 3 4 2
+- C. 4 3 3 2
+- D. 3 4 3 2
+
+**Answer:** A
+
+### 125.
+**Question:** What will be the output of the following C++ code?
+
+```cpp
+#include <iostream>
+#include <unordered_map>
+#include <vector>
+#include <string>
+
+std::string helper(const std::string& s, const std::string& t) {
+    std::unordered_map<char, int> map;
+    for (char c : t) map[c]++;
+    int left = 0, right = 0, count = t.size(), min_len = INT_MAX;
+    std::string result;
+    while (right < s.size()) {
+        if (map[s[right]] > 0) count--;
+        map[s[right]]--;
+        right++;
+        while (count == 0) {
+            if (right - left < min_len) {
+                min_len = right - left;
+                result = s.substr(left, min_len);
+            }
+            map[s[left]]++;
+            if (map[s[left]] > 0) count++;
+            left++;
+        }
+    }
+    return result;
+}
+
+int main() {
+    std::string s = "ADOBECODEBANC";
+    std::string t = "ABC";
+    std::cout << helper(s, t);
+    return 0;
+}
+```
+- A. "ADOBEC"
+- B. "CODEBANC"
+- C. "BANC"
+- D. "DOBECODEBANC"
+
+**Answer:** C
+
+### 126.
+**Question:** What will be the output of the following C++ code?
+
+```cpp
+#include <iostream>
+#include <unordered_map>
+#include <vector>
+
+int helper(std::vector<int>& nums) {
+    std::unordered_map<int, int> map;
+    int left = 0, max_len = 0;
+    for (int right = 0; right < nums.size(); right++) {
+        map[nums[right]]++;
+        while (map[nums[right]] > 1) {
+            map[nums[left]]--;
+            left++;
+        }
+        max_len = std::max(max_len, right - left + 1);
+    }
+    return max_len;
+}
+
+int main() {
+    std::vector<int> nums = {1, 2, 3, 1, 2, 3, 4, 5};
+    std::cout << helper(nums);
+    return 0;
+}
+```
+- A. 3
+- B. 4
+- C. 5
+- D. 6
+
+**Answer:** C
+
+### 127.
+**Question:** What will be the output of the following C++ code?
+
+```cpp
+#include <iostream>
+#include <unordered_map>
+#include <vector>
+
+bool helper(std::vector<int>& nums, int k) {
+    std::unordered_map<int, int> map;
+    for (int i = 0; i < nums.size(); i++) {
+        if (map.find(nums[i]) != map.end() && i - map[nums[i]] <= k) {
+            return true;
+        }
+        map[nums[i]] = i;
+    }
+    return false;
+}
+
+int main() {
+    std::vector<int> nums = {1, 2, 3, 1};
+    int k = 3;
+    std::cout << helper(nums, k);
+    return 0;
+}
+```
+- A. 0
+- B. 1
+- C. true
+- D. false
+
+**Answer:** B. 1
+
+### 128.
+**Question:** What will be the output of the following C++ code?
+
+```cpp
+#include <iostream>
+#include <unordered_map>
+#include <vector>
+
+int helper(const std::vector<int>& nums) {
+    std::unordered_map<int, int> map;
+    int max_len = 0, sum = 0;
+    for (int i = 0; i < nums.size(); i++) {
+        sum += nums[i];
+        if (sum == 0) {
+            max_len = i + 1;
+        } else if (map.find(sum) != map.end()) {
+            max_len = std::max(max_len, i - map[sum]);
+        } else {
+            map[sum] = i;
+        }
+    }
+    return max_len;
+}
+
+int main() {
+    std::vector<int> nums = {1, -1, 3, 2, -2, -3, 3};
+    std::cout << helper(nums);
+    return 0;
+}
+```
+- A. 2
+- B. 4
+- C. 5
+- D. 6
+
+**Answer:** D
+
+### 129.
+**Question:** What will be the output of the following C++ code?
+
+```cpp
+#include <iostream>
+#include <unordered_map>
+#include <vector>
+
+std::vector<int> helper(const std::vector<int>& nums, int k) {
+    std::unordered_map<int, int> map;
+    std::vector<int> result;
+    for (int num : nums) {
+        map[num]++;
+        if (map[num] == k) {
+            result.push_back(num);
+        }
+    }
+    return result;
+}
+
+int main() {
+    std::vector<int> nums = {1, 2, 3, 1, 2, 3, 4, 1, 2, 1};
+    int k = 3;
+    std::vector<int> result = helper(nums, k);
+    for (int num : result) {
+        std::cout << num << " ";
+    }
+    return 0;
+}
+```
+- A. 1 2 3
+- B. 1 2
+- C. 1
+- D. 1 2 3 4
+
+**Answer:** B
+
+### 130.
+**Question:** What will be the output of the following C++ code?
+
+```cpp
+#include <iostream>
+#include <unordered_map>
+#include <vector>
+
+int helper(const std::vector<int>& nums, int target) {
+    std::unordered_map<int, int> map;
+    for (int num : nums) {
+        int complement = target - num;
+        if (map
+
+.find(complement) != map.end()) {
+            return map[complement];
+        }
+        map[num] = num;
+    }
+    return -1;
+}
+
+int main() {
+    std::vector<int> nums = {2, 7, 11, 15};
+    int target = 9;
+    std::cout << helper(nums, target);
+    return 0;
+}
+```
+- A. 7
+- B. 2
+- C. 9
+- D. -1
+
+**Answer:** B
+
+### 131.
+**Question:** What will be the output of the following C++ code?
+
+```cpp
+#include <iostream>
+#include <unordered_map>
+#include <vector>
+
+int helper(const std::vector<int>& nums) {
+    std::unordered_map<int, int> map;
+    int max_len = 0, curr_len = 0;
+    for (int i = 0; i < nums.size(); i++) {
+        if (map.find(nums[i]) == map.end() || i - map[nums[i]] > curr_len) {
+            curr_len++;
+        } else {
+            curr_len = i - map[nums[i]];
+        }
+        map[nums[i]] = i;
+        max_len = std::max(max_len, curr_len);
+    }
+    return max_len;
+}
+
+int main() {
+    std::vector<int> nums = {1, 2, 3, 1, 2, 3, 4, 5};
+    std::cout << helper(nums);
+    return 0;
+}
+```
+- A. 3
+- B. 4
+- C. 5
+- D. 6
+
+**Answer:** C
 
 
