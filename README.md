@@ -746,6 +746,14 @@ Sure, here are all the questions numbered from 21 onwards:
 **Answer:** C
 
 ### 31.
+**Question:** Which data structure is most suitable for implementing a priority queue?
+
+- A. Stack
+- B. Linked List
+- C. Binary Heap
+- D. Array
+
+**Answer:** C
 
 
 ### 32.
@@ -3017,4 +3025,1515 @@ int main() {
 
 **Answer:** C
 
+### 132.
+**Question:** What will be the output of the following C++ code?
 
+```cpp
+#include <iostream>
+
+struct Node {
+    int data;
+    Node* left;
+    Node* right;
+    Node(int val) : data(val), left(nullptr), right(nullptr) {}
+};
+
+void fun(Node* root) {
+    if (root == nullptr) return;
+    std::cout << root->data << " ";
+    fun(root->left);
+    fun(root->right);
+}
+
+int main() {
+    Node* root = new Node(1);
+    root->left = new Node(2);
+    root->right = new Node(3);
+    root->left->left = new Node(4);
+    root->left->right = new Node(5);
+    fun(root);
+    return 0;
+}
+```
+- A. 1 2 4 5 3
+- B. 4 2 5 1 3
+- C. 1 4 5 2 3
+- D. 4 5 2 3 1
+
+**Answer:** A
+
+### 133.
+**Question:** What will be the output of the following C++ code?
+
+```cpp
+#include <iostream>
+#include <stack>
+
+struct Node {
+    int data;
+    Node* left;
+    Node* right;
+    Node(int val) : data(val), left(nullptr), right(nullptr) {}
+};
+
+void fun(Node* root) {
+    if (root == nullptr) return;
+    std::stack<Node*> stack;
+    stack.push(root);
+    while (!stack.empty()) {
+        Node* node = stack.top();
+        std::cout << node->data << " ";
+        stack.pop();
+        if (node->right) stack.push(node->right);
+        if (node->left) stack.push(node->left);
+    }
+}
+
+int main() {
+    Node* root = new Node(1);
+    root->left = new Node(2);
+    root->right = new Node(3);
+    root->left->left = new Node(4);
+    root->left->right = new Node(5);
+    fun(root);
+    return 0;
+}
+```
+- A. 1 2 4 5 3
+- B. 1 3 2 5 4
+- C. 4 2 5 1 3
+- D. 1 2 3 4 5
+
+**Answer:** A
+
+### 134.
+**Question:** What will be the output of the following C++ code?
+
+```cpp
+#include <iostream>
+#include <queue>
+
+struct Node {
+    int data;
+    Node* left;
+    Node* right;
+    Node(int val) : data(val), left(nullptr), right(nullptr) {}
+};
+
+void fun(Node* root) {
+    if (root == nullptr) return;
+    std::queue<Node*> queue;
+    queue.push(root);
+    while (!queue.empty()) {
+        Node* node = queue.front();
+        std::cout << node->data << " ";
+        queue.pop();
+        if (node->left) queue.push(node->left);
+        if (node->right) queue.push(node->right);
+    }
+}
+
+int main() {
+    Node* root = new Node(1);
+    root->left = new Node(2);
+    root->right = new Node(3);
+    root->left->left = new Node(4);
+    root->left->right = new Node(5);
+    fun(root);
+    return 0;
+}
+```
+- A. 1 2 4 5 3
+- B. 4 2 5 1 3
+- C. 1 2 3 4 5
+- D. 1 3 2 5 4
+
+**Answer:** C
+
+### 135.
+**Question:** What will be the output of the following C++ code?
+
+```cpp
+#include <iostream>
+
+struct Node {
+    int data;
+    Node* left;
+    Node* right;
+    Node(int val) : data(val), left(nullptr), right(nullptr) {}
+};
+
+void fun(Node* root) {
+    if (root == nullptr) return;
+    fun(root->left);
+    std::cout << root->data << " ";
+    fun(root->right);
+}
+
+int main() {
+    Node* root = new Node(1);
+    root->left = new Node(2);
+    root->right = new Node(3);
+    root->left->left = new Node(4);
+    root->left->right = new Node(5);
+    fun(root);
+    return 0;
+}
+```
+- A. 1 2 4 5 3
+- B. 4 2 5 1 3
+- C. 1 4 5 2 3
+- D. 4 5 2 3 1
+
+**Answer:** B
+
+### 136.
+**Question:** What will be the output of the following C++ code?
+
+```cpp
+#include <iostream>
+
+struct Node {
+    int data;
+    Node* left;
+    Node* right;
+    Node(int val) : data(val), left(nullptr), right(nullptr) {}
+};
+
+void fun(Node* root) {
+    if (root == nullptr) return;
+    fun(root->left);
+    fun(root->right);
+    std::cout << root->data << " ";
+}
+
+int main() {
+    Node* root = new Node(1);
+    root->left = new Node(2);
+    root->right = new Node(3);
+    root->left->left = new Node(4);
+    root->left->right = new Node(5);
+    fun(root);
+    return 0;
+}
+```
+- A. 1 2 4 5 3
+- B. 4 2 5 1 3
+- C. 1 4 5 2 3
+- D. 4 5 2 3 1
+
+**Answer:** D
+
+### 137.
+**Question:** What will be the output of the following C++ code?
+
+```cpp
+#include <iostream>
+
+struct Node {
+    int data;
+    Node* left;
+    Node* right;
+    Node(int val) : data(val), left(nullptr), right(nullptr) {}
+};
+
+void fun(Node* root, int level) {
+    if (root == nullptr) return;
+    if (level == 1) {
+        std::cout << root->data << " ";
+    } else if (level > 1) {
+        fun(root->left, level - 1);
+        fun(root->right, level - 1);
+    }
+}
+
+int height(Node* node) {
+    if (node == nullptr) return 0;
+    int left_height = height(node->left);
+    int right_height = height(node->right);
+    return std::max(left_height, right_height) + 1;
+}
+
+void levelOrder(Node* root) {
+    int h = height(root);
+    for (int i = 1; i <= h; i++) {
+        fun(root, i);
+    }
+}
+
+int main() {
+    Node* root = new Node(1);
+    root->left = new Node(2);
+    root->right = new Node(3);
+    root->left->left = new Node(4);
+    root->left->right = new Node(5);
+    levelOrder(root);
+    return 0;
+}
+```
+- A. 1 2 4 5 3
+- B. 4 2 5 1 3
+- C. 1 2 3 4 5
+- D. 1 3 2 5 4
+
+**Answer:** C
+
+### 138.
+**Question:** What will be the output of the following C++ code?
+
+```cpp
+#include <iostream>
+#include <stack>
+
+struct Node {
+    int data;
+    Node* left;
+    Node* right;
+    Node(int val) : data(val), left(nullptr), right(nullptr) {}
+};
+
+void fun(Node* root) {
+    std::stack<Node*> stack;
+    Node* current = root;
+    while (current != nullptr || !stack.empty()) {
+        while (current != nullptr) {
+            stack.push(current);
+            current = current->left;
+        }
+        current = stack.top();
+        stack.pop();
+        std::cout << current->data << " ";
+        current = current->right;
+    }
+}
+
+int main() {
+    Node* root = new Node(1);
+    root->left = new Node(2);
+    root->right = new Node(3);
+    root->left->left = new Node(4);
+    root->left->right = new Node(5);
+    fun(root);
+    return 0;
+}
+```
+- A. 1 2 4 5 3
+- B. 4 2 5 1 3
+- C. 1 4 5 2 3
+- D. 4 5 2 3 1
+
+**Answer:** B
+
+### 139.
+**Question:** What will be the output of the following C++ code?
+
+```cpp
+#include <iostream>
+
+struct Node {
+    int data;
+    Node* left;
+    Node* right;
+    Node(int val) : data(val), left(nullptr), right(nullptr) {}
+};
+
+void fun(Node* root) {
+    if (root == nullptr) return;
+    std::cout << root->data << " ";
+    if (root->left) fun(root->left->right);
+    if (root->right) fun(root->right->left);
+}
+
+int main() {
+    Node
+
+* root = new Node(1);
+    root->left = new Node(2);
+    root->right = new Node(3);
+    root->left->left = new Node(4);
+    root->left->right = new Node(5);
+    root->right->left = new Node(6);
+    root->right->right = new Node(7);
+    fun(root);
+    return 0;
+}
+```
+- A. 1 5 6
+- B. 1 3 2 6 5
+- C. 1 5 6 4 7
+- D. 1 2 3 5 6
+
+**Answer:** A
+
+### 140.
+**Question:** What will be the output of the following C++ code?
+
+```cpp
+#include <iostream>
+
+struct Node {
+    int data;
+    Node* left;
+    Node* right;
+    Node(int val) : data(val), left(nullptr), right(nullptr) {}
+};
+
+int fun(Node* root) {
+    if (root == nullptr) return 0;
+    int left_height = fun(root->left);
+    int right_height = fun(root->right);
+    return std::max(left_height, right_height) + 1;
+}
+
+int main() {
+    Node* root = new Node(1);
+    root->left = new Node(2);
+    root->right = new Node(3);
+    root->left->left = new Node(4);
+    root->left->right = new Node(5);
+    std::cout << fun(root);
+    return 0;
+}
+```
+- A. 2
+- B. 3
+- C. 4
+- D. 5
+
+**Answer:** B
+
+### 141.
+**Question:** What will be the output of the following C++ code?
+
+```cpp
+#include <iostream>
+#include <stack>
+
+struct Node {
+    int data;
+    Node* left;
+    Node* right;
+    Node(int val) : data(val), left(nullptr), right(nullptr) {}
+};
+
+void fun(Node* root) {
+    if (root == nullptr) return;
+    std::stack<Node*> stack;
+    Node* lastVisited = nullptr;
+    Node* current = root;
+    while (!stack.empty() || current != nullptr) {
+        if (current != nullptr) {
+            stack.push(current);
+            current = current->left;
+        } else {
+            Node* topNode = stack.top();
+            if (topNode->right != nullptr && lastVisited != topNode->right) {
+                current = topNode->right;
+            } else {
+                std::cout << topNode->data << " ";
+                lastVisited = topNode;
+                stack.pop();
+            }
+        }
+    }
+}
+
+int main() {
+    Node* root = new Node(1);
+    root->left = new Node(2);
+    root->right = new Node(3);
+    root->left->left = new Node(4);
+    root->left->right = new Node(5);
+    fun(root);
+    return 0;
+}
+```
+- A. 1 2 4 5 3
+- B. 4 5 2 3 1
+- C. 4 2 5 1 3
+- D. 1 4 5 2 3
+
+**Answer:** B
+
+### 142.
+**Question:** What will be the output of the following C++ code?
+
+```cpp
+#include <iostream>
+
+int fun(int n) {
+    if (n == 0) return 1;
+    return n * fun(n - 1);
+}
+
+int main() {
+    int n = 5;
+    std::cout << fun(n);
+    return 0;
+}
+```
+- A. 15
+- B. 25
+- C. 120
+- D. 720
+
+**Answer:** C
+
+### 143.
+**Question:** What will be the output of the following C++ code?
+
+```cpp
+#include <iostream>
+
+int fun(int n) {
+    if (n <= 1) return n;
+    return fun(n - 1) + fun(n - 2);
+}
+
+int main() {
+    int n = 6;
+    std::cout << fun(n);
+    return 0;
+}
+```
+- A. 5
+- B. 8
+- C. 13
+- D. 21
+
+**Answer:** B
+
+### 144.
+**Question:** What will be the output of the following C++ code?
+
+```cpp
+#include <iostream>
+
+void fun(int n) {
+    if (n == 0) return;
+    fun(n / 2);
+    std::cout << n % 2;
+}
+
+int main() {
+    int n = 10;
+    fun(n);
+    return 0;
+}
+```
+- A. 0101
+- B. 1010
+- C. 1001
+- D. 1100
+
+**Answer:** B
+
+### 145.
+**Question:** What will be the output of the following C++ code?
+
+```cpp
+#include <iostream>
+
+int fun(int n) {
+    if (n == 1) return 0;
+    if (n % 2 == 0) return 1 + fun(n / 2);
+    return 1 + fun(3 * n + 1);
+}
+
+int main() {
+    int n = 6;
+    std::cout << fun(n);
+    return 0;
+}
+```
+- A. 3
+- B. 4
+- C. 8
+- D. 9
+
+**Answer:** C
+
+### 146.
+**Question:** What will be the output of the following C++ code?
+
+```cpp
+#include <iostream>
+
+void fun(int n) {
+    if (n == 0) return;
+    std::cout << n << " ";
+    fun(n - 1);
+}
+
+int main() {
+    int n = 5;
+    fun(n);
+    return 0;
+}
+```
+- A. 5 4 3 2 1 0
+- B. 5 4 3 2 1
+- C. 0 1 2 3 4 5
+- D. 1 2 3 4 5
+
+**Answer:** B
+
+### 147.
+**Question:** What will be the output of the following C++ code?
+
+```cpp
+#include <iostream>
+
+void fun(int n) {
+    if (n == 0) return;
+    fun(n - 1);
+    std::cout << n << " ";
+}
+
+int main() {
+    int n = 5;
+    fun(n);
+    return 0;
+}
+```
+- A. 5 4 3 2 1 0
+- B. 5 4 3 2 1
+- C. 1 2 3 4 5
+- D. 0 1 2 3 4 5
+
+**Answer:** C
+
+### 148.
+**Question:** What will be the output of the following C++ code?
+
+```cpp
+#include <iostream>
+
+void fun(int n) {
+    if (n > 0) {
+        std::cout << n << " ";
+        fun(n - 1);
+        fun(n - 1);
+    }
+}
+
+int main() {
+    int n = 3;
+    fun(n);
+    return 0;
+}
+```
+- A. 3 2 1 1 2 1 1
+- B. 3 2 1 2 1 1 1
+- C. 3 2 1 2 1 2 1
+- D. 3 3 2 2 1 1
+
+**Answer:** A
+
+### 149.
+**Question:** What will be the output of the following C++ code?
+
+```cpp
+#include <iostream>
+
+int fun(int n) {
+    if (n < 10) return n;
+    return fun(n / 10) + (n % 10);
+}
+
+int main() {
+    int n = 123;
+    std::cout << fun(n);
+    return 0;
+}
+```
+- A. 6
+- B. 7
+- C. 10
+- D. 12
+
+**Answer:** A
+
+### 150.
+**Question:** What will be the output of the following C++ code?
+
+```cpp
+#include <iostream>
+
+int fun(int n) {
+    if (n == 0) return 1;
+    return n * fun(n - 1);
+}
+
+int main() {
+    int n = 4;
+    std::cout << fun(n);
+    return 0;
+}
+```
+- A. 12
+- B. 24
+- C. 16
+- D. 4
+
+**Answer:** B
+
+### 151.
+**Question:** What will be the output of the following C++ code?
+
+```cpp
+#include <iostream>
+
+int fun(int a, int b) {
+    if (b == 0) return a;
+    return fun(b, a % b);
+}
+
+int main() {
+    int a = 48, b = 18;
+    std::cout << fun(a, b);
+    return 0;
+}
+```
+- A. 6
+- B. 18
+- C. 24
+- D. 48
+
+**Answer:** A
+
+### 152.
+**Question:** What will be the output of the following C++ code?
+
+```cpp
+#include <iostream>
+
+void fun(int n) {
+    if (n <= 0) return;
+    std::cout << n << " ";
+    fun(n - 2);
+    std::cout << n << " ";
+}
+
+int main() {
+    int n = 4;
+    fun(n);
+    return 0;
+}
+```
+- A. 4 2 0 2 4
+- B. 4 2 2 4
+- C. 4 2 2 4 4 2
+- D. 4 2 4 2
+
+**Answer:** B
+
+### 153.
+**Question:** What will be the output of the following C++ code?
+
+```cpp
+#include <iostream>
+
+void fun(int n) {
+    if (n <= 0) return;
+    std::cout << n << " ";
+    fun(n - 2);
+    std::cout << n << " ";
+}
+
+int main() {
+    int n = 3;
+    fun(n);
+    return 0;
+}
+```
+- A. 3 1 1 3
+- B. 3 1 0 1 3
+- C. 3 1 1 3 3 1
+- D. 3 1 3 1
+
+**Answer:** A
+
+### 154.
+**Question:** What will be the output of the following C++ code?
+
+```cpp
+#include <iostream>
+
+int fun(int n) {
+    if (n <= 1) return n;
+    return fun(n - 1) + fun(n - 3);
+}
+
+int main() {
+    int n = 6;
+    std::cout << fun(n);
+    return 0;
+}
+```
+- A. 7
+- B. 1
+- C. 8
+- D. 6
+
+**Answer:** B
+
+### 155.
+**Question:** What will be the output of the following C++ code?
+
+```cpp
+#include <iostream>
+
+int fun(int n) {
+    if (n == 0) return 1;
+    return 2 * fun(n - 1);
+}
+
+int main() {
+    int n = 3;
+    std::cout << fun(n);
+    return 0;
+}
+```
+- A. 6
+- B. 8
+- C. 4
+- D. 16
+
+**Answer:** B
+
+### 156.
+**Question:** What will be the output of the following C++ code?
+
+```cpp
+#include <iostream>
+
+int fun(int n) {
+    if (n == 0) return 0;
+    return n + fun(n / 2);
+}
+
+int main() {
+    int n = 5;
+    std::cout << fun(n);
+    return 0;
+}
+```
+- A. 5
+- B. 8
+- C. 10
+- D. 12
+
+**Answer:** B
+
+### 157.
+**Question:** What will be the output of the following C++ code?
+
+```cpp
+#include <iostream>
+
+void fun(int n) {
+    if (n > 0) {
+        std::cout << n << " ";
+        fun(n / 2);
+    }
+}
+
+int main() {
+    int n = 10;
+    fun(n);
+    return 0;
+}
+```
+- A. 10 5 2 1
+- B. 10 5 3 1
+- C. 10 4 2 1
+- D. 10 5 4 1
+
+**Answer:** A
+
+### 158.
+**Question:** What will be the output of the following C++ code?
+
+```cpp
+#include <iostream>
+
+void fun(int n) {
+    if (n <= 0) return;
+    fun(n - 2);
+    std::cout << n << " ";
+    fun(n - 1);
+}
+
+int main() {
+    int n = 3;
+    fun(n);
+    return 0;
+}
+```
+- A. 1 2 3 2 3
+- B. 3 2 1 1 2 2 3 3
+- C. 1 3 2 1
+- D. 1 3 2 2 3 3
+
+**Answer:** C
+
+### 159.
+**Question:** What will be the output of the following C++ code?
+
+```cpp
+#include <iostream>
+
+int fun(int n) {
+    if (n == 1) return 1;
+    return n * fun(n / 2);
+}
+
+int main() {
+    int n = 6;
+    std::cout << fun(n);
+    return 0;
+}
+```
+- A. 6
+- B. 9
+- C. 12
+- D. 18
+
+**Answer:** D
+
+### 160.
+**Question:** What will be the output of the following C++ code?
+
+```cpp
+#include <iostream>
+
+void fun(int n) {
+    if (n == 0) return;
+    std::cout << n % 10 << " ";
+    fun(n / 10);
+}
+
+int main() {
+    int n = 1234;
+    fun(n);
+    return 0;
+}
+```
+- A. 1 2 3 4
+- B. 4 3 2 1
+- C. 1 4 3 2
+- D. 4 1 3 2
+
+**Answer:** B
+
+### 161.
+**Question:** What will be the output of the following C++ code?
+
+```cpp
+#include <iostream>
+
+int fun(int n) {
+    if (n < 10) return n;
+    return fun(n / 10) + n % 10;
+}
+
+int main() {
+    int n = 253;
+    std::cout << fun(n);
+    return 0;
+}
+```
+- A. 10
+- B. 15
+- C. 7
+- D. 8
+
+**Answer:** A
+
+### 162.
+**Question:** Which of the following is true about arrays in C++?
+
+- A. Arrays can only hold integers.
+- B. The size of an array must be defined at compile time.
+- C. Arrays are dynamically allocated.
+- D. Arrays cannot be accessed using pointers.
+
+**Answer:** B
+
+### 163.
+**Question:** Which sorting algorithm has the best average-case time complexity?
+
+- A. Bubble Sort
+- B. Selection Sort
+- C. Insertion Sort
+- D. Quick Sort
+
+**Answer:** D
+
+### 164.
+**Question:** What is the time complexity of inserting an element at the beginning of a singly linked list?
+
+- A. O(1)
+- B. O(n)
+- C. O(log n)
+- D. O(n log n)
+
+**Answer:** A
+
+### 165.
+**Question:** Which data structure uses LIFO (Last In, First Out) principle?
+
+- A. Array
+- B. Queue
+- C. Stack
+- D. Linked List
+
+**Answer:** C
+
+### 166.
+**Question:** Which of the following is the correct method to insert an element in a queue?
+
+- A. push()
+- B. append()
+- C. enqueue()
+- D. insert()
+
+**Answer:** C
+
+### 167.
+**Question:** What is the worst-case time complexity of Merge Sort?
+
+- A. O(n)
+- B. O(n log n)
+- C. O(n^2)
+- D. O(log n)
+
+**Answer:** B
+
+### 168.
+**Question:** What is the main disadvantage of using a singly linked list?
+
+- A. Requires more memory than arrays
+- B. Cannot be used to implement other data structures
+- C. Difficult to traverse backwards
+- D. Inefficient for implementing stacks
+
+**Answer:** C
+
+### 169.
+**Question:** In a max-heap, the parent node is always:
+
+- A. Smaller than its children
+- B. Larger than its children
+- C. Equal to its children
+- D. None of the above
+
+**Answer:** B
+
+### 170.
+**Question:** Which of the following sorting algorithms is not stable?
+
+- A. Bubble Sort
+- B. Merge Sort
+- C. Quick Sort
+- D. Insertion Sort
+
+**Answer:** C
+
+### 171.
+**Question:** What is the time complexity of accessing an element in an array by index?
+
+- A. O(1)
+- B. O(n)
+- C. O(log n)
+- D. O(n log n)
+
+**Answer:** A
+
+### 172.
+**Question:** Which data structure is the best choice for implementing a call stack?
+
+- A. Array
+- B. Linked List
+- C. Queue
+- D. Stack
+
+**Answer:** D
+
+### 173.
+**Question:** Which of the following operations is not applicable for a queue?
+
+- A. Dequeue
+- B. Enqueue
+- C. Peek
+- D. Push
+
+**Answer:** D
+
+### 174.
+**Question:** What is the average-case time complexity of Bubble Sort?
+
+- A. O(n)
+- B. O(n log n)
+- C. O(n^2)
+- D. O(log n)
+
+**Answer:** C
+
+### 175.
+**Question:** In a circular linked list, the last node points to:
+
+- A. The head node
+- B. The node before the last node
+- C. Null
+- D. None of the above
+
+**Answer:** A
+
+### 176.
+**Question:** Which sorting algorithm is most suitable for small arrays or nearly sorted arrays?
+
+- A. Bubble Sort
+- B. Merge Sort
+- C. Quick Sort
+- D. Insertion Sort
+
+**Answer:** D
+
+### 177.
+**Question:** Which of the following is true about a stack?
+
+- A. It can be used to implement recursion.
+- B. It uses FIFO (First In, First Out) principle.
+- C. It requires a doubly linked list for implementation.
+- D. It cannot be implemented using arrays.
+
+**Answer:** A
+
+### 178.
+**Question:** In a queue, elements are added at the:
+
+- A. Front
+- B. Rear
+- C. Middle
+- D. None of the above
+
+**Answer:** B
+
+### 179.
+**Question:** Which of the following is a self-adjusting sorting algorithm?
+
+- A. Heap Sort
+- B. Merge Sort
+- C. Bubble Sort
+- D. Shell Sort
+
+**Answer:** D
+
+### 180.
+**Question:** What is the time complexity of deleting an element from the middle of a singly linked list?
+
+- A. O(1)
+- B. O(n)
+- C. O(log n)
+- D. O(n log n)
+
+**Answer:** B
+
+### 181.
+**Question:** Which data structure allows deletion from one end and insertion at the other end?
+
+- A. Stack
+- B. Queue
+- C. Array
+- D. Linked List
+
+**Answer:** B
+
+### 182.
+**Question:** Which sorting algorithm is considered the best for general-purpose sorting?
+
+- A. Bubble Sort
+- B. Selection Sort
+- C. Quick Sort
+- D. Insertion Sort
+
+**Answer:** C
+
+### 183.
+**Question:** What is the best data structure for implementing an undo mechanism?
+
+- A. Array
+- B. Stack
+- C. Queue
+- D. Linked List
+
+**Answer:** B
+
+### 184.
+**Question:** What is the time complexity of inserting an element at the end of a dynamic array (amortized analysis)?
+
+- A. O(1)
+- B. O(n)
+- C. O(log n)
+- D. O(n log n)
+
+**Answer:** A
+
+### 185.
+**Question:** Which data structure is used for breadth-first traversal of a graph?
+
+- A. Stack
+- B. Queue
+- C. Array
+- D. Linked List
+
+**Answer:** B
+
+### 186.
+**Question:** In which case will a linked list perform better than an array?
+
+- A. Accessing elements by index
+- B. Searching for an element
+- C. Inserting elements at the beginning
+- D. Sorting elements
+
+**Answer:** C
+
+### 187.
+**Question:** Which of the following sorting algorithms is the best for sorting linked lists?
+
+- A. Quick Sort
+- B. Merge Sort
+- C. Bubble Sort
+- D. Selection Sort
+
+**Answer:** B
+
+### 188.
+**Question:** Which data structure is used in the implementation of recursion?
+
+- A. Array
+- B. Queue
+- C. Stack
+- D. Linked List
+
+**Answer:** C
+
+### 189.
+**Question:** What is the main advantage of a circular queue over a linear queue?
+
+- A. Easier to implement
+- B. Efficient use of space
+- C. Simplifies operations
+- D. Faster access times
+
+**Answer:** B
+
+### 190.
+**Question:** Which of the following operations is most efficient for an array?
+
+- A. Inserting elements at the beginning
+- B. Deleting elements from the middle
+- C. Accessing elements by index
+- D. Searching for an element
+
+**Answer:** C
+
+### 191.
+**Question:** What is the time complexity of finding the maximum element in an unsorted array of n elements?
+
+- A. O(1)
+- B. O(n)
+- C. O(log n)
+- D. O(n log n)
+
+**Answer:** B
+
+### 192.
+**Question:** Which of the following sorting algorithms is a comparison sort?
+
+- A. Radix Sort
+- B. Bucket Sort
+- C. Merge Sort
+- D. Counting Sort
+
+**Answer:** C
+
+### 193.
+**Question:** What is the main advantage of using a doubly linked list over a singly linked list?
+
+- A. Requires less memory
+- B. Easier to implement
+- C. Allows traversal in both directions
+- D. Simplifies insertion at the beginning
+
+**Answer:** C
+
+### 194.
+**Question:** Which of the following operations is not efficient for an array?
+
+- A. Accessing an element by index
+- B. Inserting an element at the end
+- C. Deleting an element from the middle
+- D. Modifying an element by index
+
+**Answer:** C
+
+### 195.
+**Question:** What is the worst-case time complexity of Quick Sort?
+
+- A. O(n)
+- B. O(n log n)
+- C. O(n^2)
+- D. O(log n)
+
+**Answer:** C
+
+### 196.
+**Question:** Which data structure is used to implement function calls in programming languages?
+
+- A. Array
+- B. Queue
+- C. Stack
+- D. Linked List
+
+**Answer:** C
+
+### 197.
+**Question:** What is the main disadvantage of using an array for implementing a queue?
+- A. Difficult to implement
+- B. Inefficient memory usage
+- C. Fixed size
+- D. Requires more memory than linked list
+
+**Answer:** C
+
+### 198.
+**Question:**  Certainly! Here are 11 more theoretical multiple-choice questions on Arrays, Sorting, Linked Lists, Stacks, and Queues:
+
+### 191.
+**Question:** What is the time complexity of finding the maximum element in an unsorted array of n elements?
+- A. O(1)
+- B. O(n)
+- C. O(log n)
+- D. O(n log n)
+
+**Answer:** B
+
+### 192.
+**Question:** Which of the following sorting algorithms is a comparison sort?
+- A. Radix Sort
+- B. Bucket Sort
+- C. Merge Sort
+- D. Counting Sort
+
+**Answer:** C
+
+### 193.
+**Question:** What is the main advantage of using a doubly linked list over a singly linked list?
+- A. Requires less memory
+- B. Easier to implement
+- C. Allows traversal in both directions
+- D. Simplifies insertion at the beginning
+
+**Answer:** C
+
+### 194.
+**Question:** Which of the following operations is not efficient for an array?
+- A. Accessing an element by index
+- B. Inserting an element at the end
+- C. Deleting an element from the middle
+- D. Modifying an element by index
+
+**Answer:** C
+
+### 195.
+**Question:** What is the worst-case time complexity of Quick Sort?
+- A. O(n)
+- B. O(n log n)
+- C. O(n^2)
+- D. O(log n)
+
+**Answer:** C
+
+### 196.
+**Question:** Which data structure is used to implement function calls in programming languages?
+- A. Array
+- B. Queue
+- C. Stack
+- D. Linked List
+
+**Answer:** C
+
+### 197.
+**Question:** What is the main disadvantage of using an array for implementing a queue?
+- A. Difficult to implement
+- B. Inefficient memory usage
+- C. Fixed size
+- D. Requires more memory than linked list
+
+**Answer:** C
+
+### 198.
+**Question:** Certainly! Here are 11 more theoretical multiple-choice questions on Arrays, Sorting, Linked Lists, Stacks, and Queues:
+
+### 191.
+**Question:** What is the time complexity of finding the maximum element in an unsorted array of n elements?
+- A. O(1)
+- B. O(n)
+- C. O(log n)
+- D. O(n log n)
+
+**Answer:** B
+
+### 192.
+**Question:** Which of the following sorting algorithms is a comparison sort?
+- A. Radix Sort
+- B. Bucket Sort
+- C. Merge Sort
+- D. Counting Sort
+
+**Answer:** C
+
+### 193.
+**Question:** What is the main advantage of using a doubly linked list over a singly linked list?
+- A. Requires less memory
+- B. Easier to implement
+- C. Allows traversal in both directions
+- D. Simplifies insertion at the beginning
+
+**Answer:** C
+
+### 194.
+**Question:** Which of the following operations is not efficient for an array?
+- A. Accessing an element by index
+- B. Inserting an element at the end
+- C. Deleting an element from the middle
+- D. Modifying an element by index
+
+**Answer:** C
+
+### 195.
+**Question:** What is the worst-case time complexity of Quick Sort?
+- A. O(n)
+- B. O(n log n)
+- C. O(n^2)
+- D. O(log n)
+
+**Answer:** C
+
+### 196.
+**Question:** Which data structure is used to implement function calls in programming languages?
+- A. Array
+- B. Queue
+- C. Stack
+- D. Linked List
+
+**Answer:** C
+
+### 197.
+**Question:** What is the main disadvantage of using an array for implementing a queue?
+- A. Difficult to implement
+- B. Inefficient memory usage
+- C. Fixed size
+- D. Requires more memory than linked list
+
+**Answer:** C
+
+### 198.
+**Question:** Certainly! Here are 11 more theoretical multiple-choice questions on Arrays, Sorting, Linked Lists, Stacks, and Queues:
+
+### 191.
+**Question:** What is the time complexity of finding the maximum element in an unsorted array of n elements?
+- A. O(1)
+- B. O(n)
+- C. O(log n)
+- D. O(n log n)
+
+**Answer:** B
+
+### 192.
+**Question:** Which of the following sorting algorithms is a comparison sort?
+- A. Radix Sort
+- B. Bucket Sort
+- C. Merge Sort
+- D. Counting Sort
+
+**Answer:** C
+
+### 193.
+**Question:** What is the main advantage of using a doubly linked list over a singly linked list?
+- A. Requires less memory
+- B. Easier to implement
+- C. Allows traversal in both directions
+- D. Simplifies insertion at the beginning
+
+**Answer:** C
+
+### 194.
+**Question:** Which of the following operations is not efficient for an array?
+- A. Accessing an element by index
+- B. Inserting an element at the end
+- C. Deleting an element from the middle
+- D. Modifying an element by index
+
+**Answer:** C
+
+### 195.
+**Question:** What is the worst-case time complexity of Quick Sort?
+- A. O(n)
+- B. O(n log n)
+- C. O(n^2)
+- D. O(log n)
+
+**Answer:** C
+
+### 196.
+**Question:** Which data structure is used to implement function calls in programming languages?
+- A. Array
+- B. Queue
+- C. Stack
+- D. Linked List
+
+**Answer:** C
+
+### 197.
+**Question:** What is the main disadvantage of using an array for implementing a queue?
+- A. Difficult to implement
+- B. Inefficient memory usage
+- C. Fixed size
+- D. Requires more memory than linked list
+
+**Answer:** C
+
+### 198.
+**Question:** Which of the following sorting algorithms is an in-place sorting algorithm and needs minimum  number of Swaping?
+
+- A. Merge Sort
+- B. Heap Sort
+- C. Selection Sort
+- D. Radix Sort
+
+**Answer:** C
+
+### 199.
+**Question:** What is the time complexity of searching for an element in a balanced binary search tree (BST)?
+
+- A. O(1)
+- B. O(n)
+- C. O(log n)
+- D. O(n log n)
+
+**Answer:** C
+
+### 200.
+**Question:** Which of the following is true about a queue?
+
+- A. It uses LIFO (Last In, First Out) principle.
+- B. Elements are added at the front and removed from the rear.
+- C. It can be used to implement recursion.
+- D. Elements are added at the rear and removed from the front.
+
+**Answer:** D
